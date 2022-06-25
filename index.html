@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Live</title>
+    <link rel="stylesheet" href="dist/prismjs.bundle.css">
+    <style>
+        *:focus-visible {
+            outline: unset;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="highlight">
+        <div class="highlight-code">
+            <pre class="language-js"><code id="code" class="language-js" data-lang="js" contenteditable>
+                // github.com/mustafaomereser
+                {
+                    'test': 'it is live'
+                }
+                
+                // hotkeys is active, press CTRL+S, CTRL+Z, CTRL+Y and TAB break 4 space.</code></pre>
+        </div>
+    </div>
+    <div>
+        <button id="save-button">Save</button>
+    </div>
+
+    <script src="dist/jquery-3.6.0.min.js"></script>
+    <script src="dist/prismjs.bundle.js"></script>
+    <script src="dist/live-prism.js"></script>
+    <script>
+        document.querySelector('#save-button').onclick = function () {
+            alert(document.querySelector('#code').innerText);
+            alert('saved!');
+        };
+
+        livePrismCallback = {
+            code: {
+                'save': function () {
+                    $('#save-button').click();
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
